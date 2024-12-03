@@ -1,7 +1,17 @@
+using RestRes.Models;
+using RestRes.Services;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+var MongoDBSettings = builder.Configuration.GetSection("MongoDBSettings").Get<MongoDBSettings>();
+builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDBSettings"));
+
+builder.Services.AddDbContext<RestaurantReservationDbContext>(options =>
+options.UseMongoDB(MongoDBSettings.AtlasURI ?? "", MongoDBSettings.DatabaseName ?? ""));
 
 var app = builder.Build();
 
