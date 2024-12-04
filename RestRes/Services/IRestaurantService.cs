@@ -5,7 +5,7 @@ namespace RestRes.Services
 {
   public interface IRestaurantService
   {
-    IEnumerable<Restaurant> GetRestaurants();
+    IEnumerable<Restaurant> GetAllRestaurants();
     Restaurant? GetRestaurantById(ObjectId id);
 
     void AddRestaurant(Restaurant newRestaurant);

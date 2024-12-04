@@ -1147,6 +1147,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "MongoDB.Driver >= 3.0.0",
       "MongoDB.EntityFrameworkCore >= 8.2.0"
     ]
   },
@@ -1192,6 +1193,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "MongoDB.Driver": {
+            "target": "Package",
+            "version": "[3.0.0, )"
+          },
           "MongoDB.EntityFrameworkCore": {
             "target": "Package",
             "version": "[8.2.0, )"

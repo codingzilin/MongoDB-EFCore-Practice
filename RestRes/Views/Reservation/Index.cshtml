@@ -29,7 +29,7 @@ else
         {
             <tr>
                 <td>@reservation.RestaurantName</td>
-                <td>@reservation.date.ToLocalTime()</td>
+                <td>@(reservation.date.HasValue ? reservation.date.Value.ToLocalTime().ToString() : "N/A")</td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@reservation.Id.ToString()">Edit</a>
                     <a asp-action="Delete" asp-route-id="@reservation.Id.ToString()">Delete</a>
